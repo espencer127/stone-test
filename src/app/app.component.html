@@ -1,13 +1,35 @@
-<div class="row">
-  <div class="col-md-2"></div>
-  <div class="col-md-8">
 
-    <div class="donations" *ngIf="donationsList">
+<p></p>
+
+<div class="container">
+      <form>
+      <div class="form-row">
+
+        <div class="col-md-3">
+          <input type="text" name="title" id="title" [(ngModel)]="newDonation.title" placeholder="Name" class="form-control">
+        </div>
+        <div class="col-md-3">
+          <input name="description" id="description" [(ngModel)]="newDonation.description" placeholder="Donation" class="form-control"
+            id="description">
+        </div>
+        <div class="col-md-3">
+          <input name="email" id="email" [(ngModel)]="newDonation.email" placeholder="Email" class="form-control"
+            id="email">
+        </div>
+        <div class="col-md-3">
+          <button type="submit" class="btn btn-primary" (click)="create()">Add</button>
+        </div>
+      </div>
+    </form> 
+  </div>
+
+
+    <div class="donations container" *ngIf="donationsList">
       <table class="table">
         <thead class="h">
           <tr class="h">
-            <th class="h">Title</th>
-            <th class="h">Description</th>
+            <th class="h">Name</th>
+            <th class="h">Donation</th>
             <th class="h">Email</th>
             <th class="h">Date</th>
             <th class="h">Status</th>
@@ -25,13 +47,13 @@
               <td>{{donation.status}}</td>
             
             <td>
-              <button class="btn btn-success" (click)="doneDonation(donation)">
+              <button class="btn btn-success invisible" (click)="doneDonation(donation)">
                 <i  class="fa fa-check"></i>
               </button>
               <button class="btn btn-primary" (click)="sendEmail(donation)">
                   <i  class="fa fa-envelope"></i>
                 </button>
-              <button class="btn btn-danger" (click)="deleteDonation(donation)">
+              <button class="btn btn-danger invisible" (click)="deleteDonation(donation)">
                   <i  class="fa fa-trash"></i>
                 </button>
             </td>
@@ -40,29 +62,3 @@
         </tbody>
       </table>
     </div>
-
-
-    <form>
-      <div class="form-row">
-
-        <div class="col-md-3">
-          <input type="text" name="title" id="title" [(ngModel)]="newDonation.title" placeholder="Title" class="form-control">
-        </div>
-        <div class="col-md-3">
-          <input name="description" id="description" [(ngModel)]="newDonation.description" placeholder="Description" class="form-control"
-            id="description">
-        </div>
-        <div class="col-md-3">
-          <input name="email" id="email" [(ngModel)]="newDonation.email" placeholder="Your Email" class="form-control"
-            id="email">
-        </div>
-        <div class="col-md-3">
-          <button type="submit" class="btn btn-primary" (click)="create()">Add</button>
-        </div>
-      </div>
-    </form>
-  </div>
-  <div class="col-md-2">
-    
-  </div>
-</div>
