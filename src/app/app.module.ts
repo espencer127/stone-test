@@ -7,11 +7,13 @@ import { AppComponent } from './app.component';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { MailLinkComponent } from './mail-link/mail-link.component';
+import { LetterComponent } from './letter/letter.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MailLinkComponent
+    MailLinkComponent,
+    LetterComponent
   ],
   imports: [
     BrowserModule,

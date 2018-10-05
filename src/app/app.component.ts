@@ -1,16 +1,22 @@
 import { Response } from '@angular/http';
 import { DonationService } from './services/donation.service';
 import Donation from './models/donation.model';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
+import { EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  inputs: ['donation'],
+  outputs: ['donation'],
 })
 export class AppComponent implements OnInit {
   title = 'digidons-angular';
 
+  dataChange: EventEmitter<Donation> = new EventEmitter();
+
+  @Output() eventClicked = new EventEmitter<Event>();
 
   constructor(
     //Private donationService will be injected into the component by Angular Dependency Injector
@@ -91,6 +97,7 @@ export class AppComponent implements OnInit {
   sendEmail(donation: Donation) {
     console.log("app.component.ts reached")
     this.donationService.sendEmail(donation)
+    this.dataChange.emit(donation);
   }
 
 }
