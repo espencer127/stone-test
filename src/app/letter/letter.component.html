@@ -21,26 +21,26 @@
     
     <body class="c2">
         <div>
-        </div>
         
         <p class="c14"><span class="c4">FreeRide</span></p>
         <p class="c3"><span class="c0">CEO, Company Name</span></p>
         <p class="c3"><span class="c0">123 Address St </span></p>
         <p class="c3"><span>Anytown, ST 12345</span></p>
 
-        <p class="c13"><span class="c0">4th September 20XX</span></p>
+        <p class="c13"><span class="c0">{{theDon.date | date}}</span></p>
         
-        <p class="c14"><span class="c4">{{donation.title}}</span></p>
-        <p class="c3"><span class="c9">CEO, </span><span>Company Name</span></p>
-        <p class="c3"><span class="c0">123 Address St </span></p>
+        <p class="c14"><span class="c4">{{theDon.title}}</span></p>
+        <p class="c3"><span class="c9">{{theDon.email}}</span></p>
+        <p class="c3"><span class="c0">{{theDon.phone}} </span></p>
         <p class="c3"><span class="c0">Anytown, ST 12345</span></p>
         
-        <p class="c7"><span class="c9">Dear {{donation.title}},</span></p>
+        <p class="c7"><span class="c9">Dear {{theDon.title}},</span></p>
         <p class="c10"><span>This is a very official letter thanking you for your recent donation to our organization.</span></p>
-        <p class="c10"><span>You donated many things to us and they will benefit us greatly.</span></p>
+        <p class="c10"><span>You recently donated the following to us: {{theDon.description}}. These items will benefit us greatly.</span></p>
         <p class="c10"><span class="c0">You rock!</span></p>
         <p class="c10 c11"><span class="c0"></span></p>
         <p class="c10"><span>Sincerely,</span></p>
         <p class="c10"><span class="c4 c5">FreeRide</span></p>
     
+    </div>
     </body></html>

@@ -6,14 +6,20 @@ import Donation from '../models/donation.model';
   selector: 'app-letter',
   templateUrl: './letter.component.html',
   styleUrls: ['./letter.component.scss'],
-  inputs: ['donator']
+  inputs: ['theDon'],
+  outputs: ['theDon'],
+  
 })
 export class LetterComponent implements OnInit {
-  donator: Donation;
+  theDon: Donation;
   dataChange: EventEmitter<Donation> = new EventEmitter();
+
   constructor() { }
 
   ngOnInit() {
+    //this.dataChange.emit(this.theDon);
+
+    console.log("at the letter");
   }
 
 }

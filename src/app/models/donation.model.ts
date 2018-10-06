@@ -3,6 +3,7 @@ class Donation {
     title: string;
     description: string;
     email: string;
+    phone:string;
     date: Date;
     status: string;
 
@@ -11,6 +12,7 @@ class Donation {
             this.title = ""
             this.description = ""
             this.email = ""
+            this.phone = ""
             this.date = new Date()
             this.status = ""
         }

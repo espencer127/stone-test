@@ -16,7 +16,14 @@
           <input name="email" id="email" [(ngModel)]="newDonation.email" placeholder="Email" class="form-control"
             id="email">
         </div>
+
         <div class="col-md-3">
+          <input name="phone" id="phone" [(ngModel)]="newDonation.phone" placeholder="Phone #" class="form-control"
+            id="phone">
+        </div>
+        </div>
+        <div class="form-row">
+        <div class="col-md-12">
           <button type="submit" class="btn btn-primary" (click)="create()">Add</button>
         </div>
       </div>
@@ -31,6 +38,7 @@
             <th class="h">Name</th>
             <th class="h">Donation</th>
             <th class="h">Email</th>
+            <th class="h">Phone #</th>
             <th class="h">Date</th>
             <th class="h">Status</th>
             <th class="h">Options</th>
@@ -43,17 +51,18 @@
             <td>{{donation.title}}</td>
               <td>{{donation.description}}</td>
               <td>{{donation.email}}</td>
+              <td>{{donation.phone}}</td>
               <td>{{donation.date | date}}</td>
               <td>{{donation.status}}</td>
             
             <td>
-              <button class="btn btn-success invisible" (click)="doneDonation(donation)">
+              <button class="btn btn-success" (click)="doneDonation(donation)">
                 <i  class="fa fa-check"></i>
               </button>
               <button class="btn btn-primary" (click)="sendEmail(donation)">
                   <i  class="fa fa-envelope"></i>
                 </button>
-              <button class="btn btn-danger invisible" (click)="deleteDonation(donation)">
+              <button class="btn btn-danger" (click)="deleteDonation(donation)">
                   <i  class="fa fa-trash"></i>
                 </button>
             </td>
@@ -63,4 +72,4 @@
       </table>
     </div>
 
-    <app-letter></app-letter>
+    <app-letter [(theDon)]="theDon"></app-letter>

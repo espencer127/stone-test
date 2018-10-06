@@ -8,12 +8,13 @@ import { EventEmitter } from '@angular/core';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  inputs: ['donation'],
-  outputs: ['donation'],
+  inputs: ['theDon'],
+  outputs: ['theDon'],
 })
 export class AppComponent implements OnInit {
   title = 'digidons-angular';
 
+  public theDon: Donation = new Donation()
   dataChange: EventEmitter<Donation> = new EventEmitter();
 
   @Output() eventClicked = new EventEmitter<Event>();
@@ -33,6 +34,8 @@ export class AppComponent implements OnInit {
   editDonations: Donation[] = [];
 
   ngOnInit(): void {
+
+    this.dataChange.emit(this.theDon);
 
     //At component initialization the 
     this.donationService.getDonations()
@@ -96,8 +99,10 @@ export class AppComponent implements OnInit {
 
   sendEmail(donation: Donation) {
     console.log("app.component.ts reached")
-    this.donationService.sendEmail(donation)
-    this.dataChange.emit(donation);
+    // don't send me emails while I'm debugging!
+    // this.donationService.sendEmail(donation)
+    this.theDon = donation;
+    this.dataChange.emit(this.theDon);
   }
 
 }
